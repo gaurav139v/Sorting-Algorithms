@@ -1,0 +1,36 @@
+
+.container {
+	padding: auto;
+	position: relative;
+	height: 100px;
+}
+
+.back{
+	margin: auto;
+	width: 1200px;
+	height: 400px;
+	background-color: lightgrey;
+	position: relative;
+}
+
+.red_box {
+	padding: 10px;
+	text-align: center;
+	font-size: 30px;
+	margin-top: 200px;
+	background-color: lightskyblue;
+	width: 60px;
+	height: 30px;
+	position: absolute;
+}
+
+.red_box  p {
+	color: white;
+}
+
+#Up_arrow {
+	width: 20px;
+	height: 40px;
+	display: none;
+	position: absolute;
+}
