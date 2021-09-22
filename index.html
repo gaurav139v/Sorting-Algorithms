@@ -1,48 +1,96 @@
-<html>
+<!DOCTYPE html>
+<html lang='en'>
 <head>
-<link rel="stylesheet" href="stylesheet.css">
-<script type="text/javascript" src='animation.js'></script>
-</head>
-<body onload="arrange()">
-	<center><button onclick="bubble_sort()" id = 'swap_button'>Bubble Sort</button></center>
+	<title>Sorting Algorithms</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-	<div class = 'back'>
-		<div class = 'container'>
-			<div class='red_box' id='box1'>
-				<p>Hello world</p>
+	<!-- project files -->
+	<link rel="stylesheet" href="css/stylesheet.css">
+	<script type="text/javascript" src='js/animation.js'></script>
+	<script type="text/javascript" src='js/functions.js'></script>
+	<script type="text/javascript" src='js/bubble_sort.js'></script>
+</head>
+
+<body onload="arrange()" data-spy="scroll" data-target=".navbar" data-offset="50">
+	<div class = 'container'>
+
+		<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a id='title' class="navbar-brand" href="index.html">Sorting Algorithms</a>
+		    </div>
+		    <ul class="nav navbar-nav">	
+			    <li>
+			      	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Algorithms
+			      		<span class="caret"></span>
+				    </a>
+				    <ul class="dropdown-menu">
+			        	<li><a class="disabled" href="#">Bubble Sort</a></li>
+			        	<li><a class="disabled" href="#">Insertion Sort</a></li>
+			        	<li><a class="disabled" href="#">Selection Sort</a></li>
+			        	<li><a class="disabled" href="#">Quick Sort</a></li>
+			        	<li><a class="disabled" href="#">Merge Sort</a></li>
+			      	</ul>
+			    </li>
+			    <li><a href="#">About</a></li>
+		      </ul>
+		  </div>
+		</nav>	
+			
+		<div class='col-md-12 text-right'>
+			<div class='algo-select'>
+				<label>Algorithms :</label>
+				<select id="algo_selection" class="form-select" aria-label="Default select example">	  
+				  <option value="Bubble Sort">Bubble Sort</option>				 	  
+				</select>
 			</div>
-			<div class='red_box' id='box2'>
-				<p>Hello world</p>
+			<button onclick="arrange()" class='btn btn-warning'>Regenerate</button>
+			<button onclick="sort()" class='btn btn-success'>Sort</button>
+		<div>
+
+		<div class = 'back img-rounded'>
+			<div class = 'back_place'>
+				<div class='number_box img-rounded' id='box1'>
+					<p></p>
+				</div>
+				<div class='number_box img-rounded' id='box2'>
+					<p></p>
+				</div>
+				<div class='number_box img-rounded' id='box3'>
+					<p></p>
+				</div>
+				<div class='number_box img-rounded' id='box4'>
+					<p></p>
+				</div>
+				<div class='number_box img-rounded' id='box5'>
+					<p></p>
+				</div>
+				<div class='number_box img-rounded' id='box6'>
+					<p></p>
+				</div>
+				<div class='number_box img-rounded' id='box7'>
+					<p></p>
+				</div>
+				<div class='number_box img-rounded' id='box8'>
+					<p></p>
+				</div>
+				<div class='number_box img-rounded' id='box9'>
+					<p></p>
+				</div>
+				<div class='number_box img-rounded' id='box10'>
+					<p></p>
+				</div>
+				<img src="" id='Up_arrow'>
 			</div>
-			<div class='red_box' id='box3'>
-				<p>Hello world</p>
-			</div>
-			<div class='red_box' id='box4'>
-				<p>Hello world</p>
-			</div>
-			<div class='red_box' id='box5'>
-				<p>Hello world</p>
-			</div>
-			<div class='red_box' id='box6'>
-				<p>Hello world</p>
-			</div>
-			<div class='red_box' id='box7'>
-				<p>Hello world</p>
-			</div>
-			<div class='red_box' id='box8'>
-				<p>Hello world</p>
-			</div>
-			<div class='red_box' id='box9'>
-				<p>Hello world</p>
-			</div>
-			<div class='red_box' id='box10'>
-				<p>Hello world</p>
-			</div>
-			<img src="" id='Up_arrow'>
-		</div>
-		
-		<button onclick="test()">test</button>
+			
 	</div>
+
+
 <body>
 
 </html>
