@@ -1,0 +1,81 @@
+body {
+	width: 1200px;
+	margin: auto;
+}
+
+#title {
+	font-family: serif;
+	font-size: 25px;
+	
+}
+
+#menu {
+	margin: auto;
+	position: relative;
+	width: 400px;
+}
+
+#menu li a:hover {
+	color: red;
+}
+
+#menu li a{
+	text-decoration: none;
+	font-size: 16px;
+	font-family: sans-serif;
+	color: black;	
+}
+
+.menu_list {
+	display: inline;
+	padding: 10px;
+}
+
+.back_place {
+	padding: auto;
+	position: relative;
+	height: 100px;
+}
+
+.back{
+	margin: auto;
+	margin-top: 20px;
+	width: 1140px;
+	height: 250px;
+	background-color: lightgrey;
+	background-image: url(../img/box_back2.jpg);
+	position: relative;
+	padding: 30px;
+
+}
+
+.number_box {
+	padding: 5px;
+	text-align: center;
+	font-size: 30px;
+	margin-top: 70px;
+	background-color: lightskyblue;
+	width: 80px;
+	height: 50px;
+	position: absolute;
+}
+
+#Up_arrow {
+	width: 40px;
+	height: 40px;
+	display: none;
+	position: absolute;
+}
+
+.btn {
+	width: 120px;
+}
+
+.algo-select {
+	float: left;
+	font-size: 15px;
+}
+
+select {
+	size: 15px;
+}
