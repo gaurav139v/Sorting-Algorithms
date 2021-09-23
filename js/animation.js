@@ -7,6 +7,14 @@ var number_of_box = 10;
 var pos = calculate_box_position();
 arrow_position = 0;
 random_numbers = [];
+STOP = true;
+
+function reintialize() {
+	x = 0;
+	y = 80;
+	arrow_position = 0;
+	random_numbers = [];
+}
 
 function calculate_box_position() {
 	var pos = [];
@@ -18,13 +26,27 @@ function calculate_box_position() {
 	return pos	
 }
 
-function arrange() {
-	random_numbers = [];
-	// var pos = calculate_box_position()
-	arrange_boxes(pos)
+function regenerate() {
+	STOP = true;
+	hide_arrow();
+	reintialize();
+	arrange();
+	for(var i=0; i<number_of_box; i++){
+		change_box_color(i, DEFAULT_BOX_COLOR);
+	}		
 }
 
-function fill_values(pos) {
+function arrange() {	
+	arrange_boxes();		
+}
+
+function change_box_color(box_seq, color) {
+	box_id = 'box'+ (box_seq + 1);	
+	box = document.getElementById(box_id);
+	box.style.background = color;
+}
+
+function fill_values() {
 	for(var i=0; i<pos.length; i++){
 		var id = 'box'+(i+1);
 		box = document.getElementById(id);
@@ -33,12 +55,12 @@ function fill_values(pos) {
 	}
 }
 
-function arrange_boxes(pos) {		
+function arrange_boxes() {		
 	for(var i=0; i<number_of_box; i++){
 		var rand = Math.floor(Math.random() * 100 + 1)
 		random_numbers.push(rand)
 	}
-	console.log('Randdom number : ', random_numbers)
+	console.log('Random number : ', random_numbers)
 	fill_values(pos, random_numbers);
 }
 

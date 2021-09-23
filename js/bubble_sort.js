@@ -1,12 +1,13 @@
-HIGH_LIGHT_COLOR = 'pink';
-DEFAULT_BOX_COLOR = 'lightskyblue';
-SORTED_BOX_COLOR = 'lightgreen';
+HIGH_LIGHT_COLOR = '#F0AD4E';
+DEFAULT_BOX_COLOR = 'lightgrey';
+SORTED_BOX_COLOR = '#449D44';
 
-async function bubble_sort() {
-	arrow_position = load_arrow();
-	console.log(random_numbers);
+async function bubble_sort() {	
 	for(var i=0; i< random_numbers.length; i++){
 		for(var j=0; j<random_numbers.length - i-1; j++){
+			if (STOP){			
+				return 0;
+			}
 			change_box_color(j, HIGH_LIGHT_COLOR);
 		
 			if (random_numbers[j] > random_numbers[j+1]){
@@ -34,9 +35,3 @@ async function bubble_sort() {
 	hide_arrow()
 }
 
-function change_box_color(box_seq, color) {
-	box_id = 'box'+ (box_seq + 1);	
-	box = document.getElementById(box_id);
-	console.log(box_id)
-	box.style.background = color;
-}
