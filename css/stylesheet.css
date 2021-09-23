@@ -1,6 +1,7 @@
 body {
 	width: 1200px;
 	margin: auto;
+	background-color: #292727;
 }
 
 #title {
@@ -32,7 +33,7 @@ body {
 }
 
 .back_place {
-	padding: auto;
+	
 	position: relative;
 	height: 100px;
 }
@@ -40,10 +41,11 @@ body {
 .back{
 	margin: auto;
 	margin-top: 20px;
+	margin-left: -15px;
 	width: 1140px;
 	height: 250px;
 	background-color: lightgrey;
-	background-image: url(../img/box_back2.jpg);
+	background-image: url(../img/box_back1.jpg);
 	position: relative;
 	padding: 30px;
 
@@ -54,7 +56,7 @@ body {
 	text-align: center;
 	font-size: 30px;
 	margin-top: 70px;
-	background-color: lightskyblue;
+	background-color: lightgrey;
 	width: 80px;
 	height: 50px;
 	position: absolute;
@@ -69,13 +71,18 @@ body {
 
 .btn {
 	width: 120px;
+	color: black;
 }
 
 .algo-select {
 	float: left;
 	font-size: 15px;
+	color: lightgrey;
 }
 
+#algo_selection {
+	color: black;
+}
 select {
 	size: 15px;
 }
