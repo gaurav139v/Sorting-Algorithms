@@ -14,6 +14,7 @@
 	<script type="text/javascript" src='js/animation.js'></script>
 	<script type="text/javascript" src='js/functions.js'></script>
 	<script type="text/javascript" src='js/bubble_sort.js'></script>
+	<script type="text/javascript" src='js/insertion_sort.js'></script>
 </head>
 
 <body onload="arrange()" data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -22,7 +23,7 @@
 		<nav class="navbar navbar-inverse">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a id='title' class="navbar-brand" href="index.html">Sorting Algorithms</a>
+		      <a id='title' class="navbar-brand" href="#" onclick="show('home_part')">Sorting Algorithms</a>
 		    </div>
 		    <ul class="nav navbar-nav">	
 			    <li>
@@ -41,12 +42,15 @@
 		      </ul>
 		  </div>
 		</nav>	
-			
+
+
+		<div id="home_part">	
 		<div class='col-md-12 text-right'>
 			<div class='algo-select'>
 				<label>Algorithms :</label>
 				<select id="algo_selection" class="form-select" aria-label="Default select example">	  
 				  <option value="Bubble Sort">Bubble Sort</option>				 	  
+				  <option value="Insertion Sort">Insertion Sort</option>				 	  
 				</select>
 			</div>
 			<button onclick="regenerate()" class='btn btn-warning'>Regenerate</button>
@@ -88,7 +92,9 @@
 				<img src="" id='Up_arrow'>
 			</div>
 			
-	</div>
+		</div>
+		</div>
+		
 
 
 <body>
