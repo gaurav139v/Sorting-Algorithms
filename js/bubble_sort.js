@@ -1,6 +1,4 @@
-HIGH_LIGHT_COLOR = '#F0AD4E';
-DEFAULT_BOX_COLOR = 'lightgrey';
-SORTED_BOX_COLOR = '#449D44';
+
 
 async function bubble_sort() {	
 	for(var i=0; i< random_numbers.length; i++){
@@ -15,15 +13,15 @@ async function bubble_sort() {
 				random_numbers[j] = random_numbers[j+1];
 				random_numbers[j+1] = temp;
 				swap(j, j+1);
-				move_arrow(j);
-				await sleep(2000);	
+				move_arrow(1);
+				await sleep(MIN_SLEEP_TIME);	
 
 			}else{
 				change_box_color(j, DEFAULT_BOX_COLOR);
 				change_box_color(j+1, HIGH_LIGHT_COLOR);
 	
-				move_arrow(j);
-				await sleep(2000);
+				move_arrow(1);
+				await sleep(MIN_SLEEP_TIME);
 			}
 			change_box_color(j, DEFAULT_BOX_COLOR);
 						
