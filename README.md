@@ -1,6 +1,6 @@
 # Sorting-Algorithms
 https://gaurav139v.github.io/Sorting-Algorithms/
-# Technology / Languages :
+## Technology / Languages :
 HTML/CSS
 Javascript
 Bootstrap
