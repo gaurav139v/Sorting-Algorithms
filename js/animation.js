@@ -8,6 +8,11 @@ var pos = calculate_box_position();
 arrow_position = 0;
 random_numbers = [];
 STOP = true;
+MIN_SLEEP_TIME = 500;
+MAX_SLEEP_TIME = 1500;
+HIGH_LIGHT_COLOR = '#F0AD4E';
+DEFAULT_BOX_COLOR = 'lightgrey';
+SORTED_BOX_COLOR = '#449D44';
 
 function reintialize() {
 	x = 0;
@@ -31,9 +36,17 @@ function regenerate() {
 	hide_arrow();
 	reintialize();
 	arrange();
+	change_all_box_color(DEFAULT_BOX_COLOR);
+	// reset_position();
+}
+
+function reset_position() {
 	for(var i=0; i<number_of_box; i++){
-		change_box_color(i, DEFAULT_BOX_COLOR);
-	}		
+		box_id = 'box'+ (i + 1);	
+		box = document.getElementById(box_id);
+		box.style.bottom = 10 +"px";
+		box.style.left = pos[i] +"px";
+	}
 }
 
 function arrange() {	
@@ -46,11 +59,18 @@ function change_box_color(box_seq, color) {
 	box.style.background = color;
 }
 
+function change_all_box_color(color) {	
+	for(var i=0; i<number_of_box; i++){
+		change_box_color(i, color);
+	}
+}
+
 function fill_values() {
 	for(var i=0; i<pos.length; i++){
 		var id = 'box'+(i+1);
 		box = document.getElementById(id);
 		box.style.left = pos[i] + "px";
+		// box.style.top = 0 + "px";
 		box.innerHTML = random_numbers[i];
 	}
 }
@@ -61,7 +81,7 @@ function arrange_boxes() {
 		random_numbers.push(rand)
 	}
 	console.log('Random number : ', random_numbers)
-	fill_values(pos, random_numbers);
+	fill_values();
 }
 
 function sleep(ms) {
@@ -121,18 +141,20 @@ function perform_swap(pos1, pos2) {
 	}
 }
 
-function load_arrow() {
+function load_arrow(p1) {
 	width = 40;
 	height = 40;
 	img = document.getElementById('Up_arrow');
 	img.src = 'img/up_arrow.png';
 	img.style.display = "inline";
-	first_box = pos[0];
+	arrow_place = pos[p1];
 	img.style.top = y + box_height + 10 + "px";
-	position = (box_width/2) - (width/2);
-	img.style.left = position;
+	position = arrow_place + (box_width/2) - (width/2);
+
+	img.style.left = position + "px";
 	arrow_start_pos = position;
 	arrow_end_pos = (gap + box_width) * (number_of_box-1) + position;
+	console.log(p1, arrow_place, position, arrow_end_pos);
 	return position;
 }
 
@@ -141,10 +163,10 @@ function hide_arrow() {
 	img.style.display = 'none';
 }
 
-function move_arrow() {
+function move_arrow(block) {
 	// current_position = arrow_position;
 	arrow_move = setInterval(move_a, 5);
-	end_position = (2 * (box_width/2)) + gap + arrow_position;	
+	end_position = (block * ((2 * (box_width/2)) + gap)) + arrow_position;	
 	
 
 	function move_a(){
@@ -160,4 +182,84 @@ function move_arrow() {
 		}
 	}
 	
+}
+
+function move_box_up(index, distance) {
+	console.log('indo');
+	var id = 'box'+ (index+1);
+	var box = document.getElementById('box'+(index+1));
+	focus_box_pos = pos[index];
+	final_y_pos = 70 + distance;
+	var x2 = 70;
+	var moveUp = setInterval(move_up, 10);
+	return final_y_pos;
+
+	function move_up() {	
+	console.log(x2);	
+		box.style.bottom = x2 + "px";
+		if (x2 >= final_y_pos){
+			clearInterval(moveUp);			
+		}
+		x2 += 10;
+	}
+}
+
+function move_box_down(index, distance) {
+	var id = 'box'+ (index+1);
+	var box = document.getElementById('box'+(index+1));
+	focus_box_pos = pos[index];
+	var x2 = 70 + distance;
+	final_y_pos = -20;
+	var moveDown = setInterval(move_down, 10);
+	return final_y_pos;
+
+	function move_down() {		
+		box.style.bottom = x2 + "px";
+		if (x2 <= final_y_pos){
+			clearInterval(moveDown);			
+		}
+		x2 -= 10;
+	}
+}
+
+function shift_box_right(index, block) {
+	var id = 'box'+ (index + 1);
+	var box = document.getElementById('box'+(index+1));
+	focus_box_pos = pos[index];
+	final_x_pos = focus_box_pos + (block * (box_width + gap));
+	shift_right = setInterval(shift_right, 10);
+
+	function shift_right() {		
+		box.style.left = focus_box_pos + "px";
+		
+		if (focus_box_pos >= final_x_pos){
+			clearInterval(shift_right);
+		}
+		focus_box_pos += 10;
+		
+	}
+}
+
+function shift_box_left(index, block) {
+	var id = 'box'+ (index + 1);
+	var box = document.getElementById('box'+(index+1));
+	focus_box_pos = pos[index];
+	final_x_pos = focus_box_pos - (block * (box_width + gap));
+	shift_right = setInterval(shift_right, 10);
+
+	function shift_right() {		
+		box.style.left = focus_box_pos + "px";
+
+		if (focus_box_pos <= final_x_pos){
+			clearInterval(shift_right);
+
+		}
+		focus_box_pos -= 10;
+		
+	}
+}
+
+async function test() {
+	load_arrow(1);
+	move_arrow(8);
 }
