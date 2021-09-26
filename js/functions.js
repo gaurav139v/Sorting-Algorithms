@@ -14,6 +14,10 @@ function sort() {
 	}else if (sort_algo == 'Insertion Sort'){
 		arrow_position = load_arrow(0);	
 		insertion_sort();
+
+	}else if (sort_algo == 'Selection Sort'){
+		arrow_position = load_arrow(0);	
+		selection_sort();
 	}
 }
 
@@ -32,4 +36,21 @@ function swap_values(first, second) {
 	var temp = random_numbers[first];
 	random_numbers[first] = random_numbers[second];
 	random_numbers[second] = temp;
+}
+
+function load_js(src){
+	// var src = 'js/animation.js';
+	// var file = document.getElementById(file_name);
+	// console.log(file);
+	// file.remove();
+ //  	var head= document.getElementsByTagName('head')[0];
+	// var script= document.createElement('script');
+	// script.src= 'js/animation.js';
+	// script.id = file_name;
+	// script.type = 'text/javascript';
+	// console.log(file_name);
+
+	// head.appendChild(script);
+	$('script[src="' + src + '"]').remove();
+	$('<script>').attr('src', src).appendTo('head');
 }
