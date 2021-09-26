@@ -15,6 +15,7 @@ const MIN_SLEEP_TIME = 1000;
 const MAX_SLEEP_TIME = 1500;
 const HIGH_LIGHT_COLOR = '#F0AD4E';
 const DEFAULT_BOX_COLOR = 'lightgrey';
+const SELECTED_COLOR = 'pink';
 const SORTED_BOX_COLOR = '#449D44';
 const SPEED = 10;
 
@@ -172,7 +173,10 @@ function perform_swap(pos1, pos2) {
 	function forward() {
 		// move the first box till it reaches the position of second box.
 		y_forward = (Math.sqrt((radius * radius) - (x_forward*x_forward) - (x_center*x_center) + (2*x_forward*x_center)) + y_center);		
-				
+		// var b = 70;
+		// var a = radius;
+		// var y_forward = (Math.sqrt((b * b) - ((x_forward * x_forward)* (b/a)*(b/a))));
+
 		box1.style.top = y_forward+"px";		
 		box1.style.left = x_forward+"px";		
 	
@@ -187,7 +191,9 @@ function perform_swap(pos1, pos2) {
 	function backward() {	
 		// To move the second box till it reaches the position of first box.
 		y_backward = (Math.sqrt((radius * radius) - (x_backward*x_backward) - (x_center*x_center) + (2*x_backward*x_center)) + y_center);
-		
+		// var b = 70;
+		// var a = radius;
+		// var y_backward = (Math.sqrt((b * b) - ((x_backward * x_backward)* (b/a)*(b/a))));
 		box2.style.top = -y_backward+"px";		
 		box2.style.left = x_backward+"px";
 		
@@ -198,6 +204,23 @@ function perform_swap(pos1, pos2) {
 		}
 		x_backward -= SPEED;
 	}
+}
+
+async function swap_boxes_sq(pos1, pos2) {
+	/*
+		Swap the boxes in square motion
+		pos1: position of first box (starting from 0)
+		pos2: position of second box (starting from 0)
+	*/
+	if (pos2 == pos1) { return 0;}
+	var block = pos2 - pos1;
+	move_box_up(pos2, 10);
+	move_box_up(pos1, 10);
+	shift_box_left(pos2, block);
+	shift_box_right(pos1, block);
+	await sleep(MAX_SLEEP_TIME);
+	move_box_down(pos2, 10);
+	move_box_down(pos1, 10);
 }
 
 function load_arrow(p1) {
@@ -273,7 +296,6 @@ function move_box_up(index, distance) {
 
 	// perform motion upward
 	function move_up() {	
-		console.log('Up ', y);	
 		box.style.bottom = y + "px";
 
 		// To stop the motion when it destination position.
@@ -304,7 +326,6 @@ function move_box_down(index, distance) {
 
 	// To perform motion.
 	function move_down() {	
-		console.log('down ', y);	
 		box.style.bottom = y + "px";
 
 		// To stop motion when its reaches the destination.
@@ -370,9 +391,8 @@ function shift_box_left(index, block) {
 	}
 }
 
-async function test() {
 
-	console.log('Test');
-	load_js('animation');
-	// move_box_up(2, 10);
+async function test(pos1, pos2) {
+	
+	swap_boxes_sq(pos1, pos2);
 }
