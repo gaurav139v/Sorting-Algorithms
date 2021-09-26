@@ -9,12 +9,14 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+
 	<!-- project files -->
 	<link rel="stylesheet" href="css/stylesheet.css">
-	<script type="text/javascript" src='js/animation.js'></script>
+	<script type="text/javascript" src='js/animation.js' id='animation'></script>
 	<script type="text/javascript" src='js/functions.js'></script>
 	<script type="text/javascript" src='js/bubble_sort.js'></script>
 	<script type="text/javascript" src='js/insertion_sort.js'></script>
+	<script type="text/javascript" src='js/selection_sort.js'></script>
 </head>
 
 <body onload="arrange()" data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -51,6 +53,7 @@
 				<select id="algo_selection" class="form-select" aria-label="Default select example">	  
 				  <option value="Bubble Sort">Bubble Sort</option>				 	  
 				  <option value="Insertion Sort">Insertion Sort</option>				 	  
+				  <option value="Selection Sort">Selection Sort</option>				 	  
 				</select>
 			</div>
 			<button onclick="regenerate()" class='btn btn-warning'>Regenerate</button>
@@ -94,7 +97,7 @@
 			
 		</div>
 		</div>
-		
+
 
 
 <body>
