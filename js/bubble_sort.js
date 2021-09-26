@@ -12,7 +12,7 @@ async function bubble_sort() {
 				var temp = random_numbers[j];
 				random_numbers[j] = random_numbers[j+1];
 				random_numbers[j+1] = temp;
-				swap(j, j+1);
+				swap_boxes(j, j+1);
 				move_arrow(1);
 				await sleep(MIN_SLEEP_TIME);	
 
@@ -26,9 +26,8 @@ async function bubble_sort() {
 			change_box_color(j, DEFAULT_BOX_COLOR);
 						
 		}
-		console.log('green color box : ' + j);
 		change_box_color(j, SORTED_BOX_COLOR);
-		swap(j, j);
+		swap_boxes(j, j);
 	}
 	hide_arrow()
 }
