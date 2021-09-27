@@ -18,6 +18,10 @@ function sort() {
 	}else if (sort_algo == 'Selection Sort'){
 		arrow_position = load_arrow(0);	
 		selection_sort();
+
+	}else if (sort_algo == 'Quick Sort'){
+		arrow_position = load_arrow(0);	
+		quick_sort();
 	}
 }
 
