@@ -17,6 +17,7 @@
 	<script type="text/javascript" src='js/bubble_sort.js'></script>
 	<script type="text/javascript" src='js/insertion_sort.js'></script>
 	<script type="text/javascript" src='js/selection_sort.js'></script>
+	<script type="text/javascript" src='js/quick_sort.js'></script>
 </head>
 
 <body onload="arrange()" data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -45,7 +46,6 @@
 		  </div>
 		</nav>	
 
-
 		<div id="home_part">	
 		<div class='col-md-12 text-right'>
 			<div class='algo-select'>
@@ -54,6 +54,7 @@
 				  <option value="Bubble Sort">Bubble Sort</option>				 	  
 				  <option value="Insertion Sort">Insertion Sort</option>				 	  
 				  <option value="Selection Sort">Selection Sort</option>				 	  
+				  <option value="Quick Sort">Quick Sort</option>				 	  
 				</select>
 			</div>
 			<button onclick="regenerate()" class='btn btn-warning'>Regenerate</button>
@@ -97,8 +98,7 @@
 			
 		</div>
 		</div>
-
-
+		<button onclick="quick_sort(0, 10)">test</button>
 
 <body>
 
